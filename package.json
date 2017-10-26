@@ -1,0 +1,23 @@
+{
+  "name": "serverless-plugin-build-create-react-app",
+  "version": "1.0.0",
+  "description": "Serverless plugin to build a React app while deploying Serverless. For use with s3bucket-sync",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lyuzashi/serverless-plugin-build-create-react-app.git"
+  },
+  "keywords": [
+    "serverless",
+    "sls",
+    "plugin",
+    "react",
+    "cra"
+  ],
+  "author": "Ben Patterson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lyuzashi/serverless-plugin-build-create-react-app/issues"
+  },
+  "homepage": "https://github.com/lyuzashi/serverless-plugin-build-create-react-app#readme"
+}
