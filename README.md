@@ -23,7 +23,35 @@ plugins:
   - serverless-plugin-build-create-react-app
 ```
 
-Note, Create React App and Serverless can coexist in a single project. 
+> **Note** Create React App and Serverless can coexist in a single project. 
+
+## Variables
+
+AWS stack outputs are loaded into the build environment, converted to uppercase with underscores.
+
+This allows references and attributes from resources such as an API endpoint, for example, to be injected into index.html via InterpolateHtmlPlugin.
+
+> **Note** Create React App whitelists `PUBLIC_URL` and environment variables that start with `REACT_APP_`. All other environment variables are ignored in the template.
+
+```yaml
+# serverless.yml
+  Outputs:
+    ReactAppEndpoint:
+      Description: API Gateway endpoint for serverless function calls
+      Value: 
+        Fn::Join:
+          - ''
+          - - Ref: ApiGatewayRestApi
+            - .execute-api.${self:provider.region}.amazonaws.com
+```
+
+```html
+<!-- index.html -->
+<form action="http://%REACT_APP_ENDPOINT%/name" method="post">
+  <input name="name" />
+  <input type="submit" />
+</form>
+```
 
 ## Hooks
 
