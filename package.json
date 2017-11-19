@@ -2,7 +2,10 @@
   "name": "serverless-plugin-build-create-react-app",
   "version": "1.0.1",
   "description": "Serverless plugin to build a React app while deploying Serverless. For use with s3bucket-sync",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel index.js -d dist"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/lyuzashi/serverless-plugin-build-create-react-app.git"
@@ -23,5 +26,9 @@
   "dependencies": {
     "react-dev-utils": "^4.2.1",
     "react-scripts": "^1.0.16"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
   }
 }
