@@ -47,10 +47,12 @@ This allows references and attributes from resources such as an API endpoint, fo
 
 ```html
 <!-- index.html -->
-<form action="http://%REACT_APP_ENDPOINT%/name" method="post">
-  <input name="name" />
-  <input type="submit" />
-</form>
+<script id="global_settings" type="application/json">
+  {
+    "public_url": "%PUBLIC_URL%",
+    "files_url": "%REACT_APP_FILES_URL%"
+  }
+</script>
 ```
 
 ## Hooks
