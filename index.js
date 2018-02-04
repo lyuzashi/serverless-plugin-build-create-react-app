@@ -33,9 +33,18 @@ class BuildReactForSyncPlugin {
 
   buildReactApp() {
     return this.getStackOutputs().then(outputs => {
+      const command = [];
       const env = { ...process.env, ...outputs };
-      const build = require.resolve('react-scripts/scripts/build');
-      const result = spawn.sync( 'node', [build], { stdio: 'inherit', env });
+      const buildopts = this.serverless.service.custom['build-cra'];
+
+      if (buildopts) {
+        command.push(require.resolve(buildopts.command + '/scripts/build'));
+        command.push(...buildopts.params);
+      } else {
+        command.push(require.resolve('react-scripts/scripts/build'));
+      }
+
+      const result = spawn.sync('node', command, {stdio: 'inherit', env});
       return Promise.resolve(result.status);
     });
   }
