@@ -35,7 +35,7 @@ class BuildReactForSyncPlugin {
     return this.getStackOutputs().then(outputs => {
       const command = [];
       const env = { ...process.env, ...outputs };
-      const buildopts = this.serverless.service.custom['build-cra'];
+      const buildopts = this.serverless.service.custom['build-create-react-app'];
 
       if (buildopts) {
         command.push(require.resolve(buildopts.command + '/scripts/build'));
