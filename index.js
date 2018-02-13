@@ -39,7 +39,9 @@ class BuildReactForSyncPlugin {
 
       if (buildopts) {
         command.push(require.resolve(buildopts.command + '/scripts/build'));
-        command.push(...buildopts.params);
+        if (buildopts.params) {
+          command.push(...buildopts.params);
+        }
       } else {
         command.push(require.resolve('react-scripts/scripts/build'));
       }
