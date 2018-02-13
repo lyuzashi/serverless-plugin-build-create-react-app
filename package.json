@@ -1,6 +1,6 @@
 {
   "name": "serverless-plugin-build-create-react-app",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Serverless plugin to build a React app while deploying Serverless. For use with s3bucket-sync",
   "main": "dist/index.js",
   "scripts": {
