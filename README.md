@@ -54,7 +54,18 @@ This allows references and attributes from resources such as an API endpoint, fo
   }
 </script>
 ```
+## Configuration
+If you're using a custom script to build the project you can supply the build parameters in the custom settings of serverless.yml. For example, if you're using Typescript with react-app-rewired and the build script in package.json is `"react-app-rewired build --scripts-version react-scripts-ts"` you can configure the plugin to use this command like this:
 
+```yaml
+# serverless.yml
+custom:
+  build-create-react-app:
+    command: react-app-rewired
+    params:
+      - --scripts-version
+      - react-scripts-ts
+```
 ## Hooks
 
 * On running `serverless deploy`, Create React App will spawn the build process and generate a static site in the `build` directory
